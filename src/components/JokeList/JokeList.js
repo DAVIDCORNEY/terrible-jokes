@@ -9,14 +9,10 @@ class JokeList extends Component {
     jokes: []
   };
 
-  componentDidMount() {
-    let jokes = [];
+  async componentDidMount() {
     const url = "https://icanhazdadjoke.com/";
-    return axios
-      .get(url, { headers: { Accept: "application/json" } })
-      .then(({ data }) => {
-        console.log(data);
-      });
+    let res = await axios.get(url, { headers: { Accept: "application/json" } });
+    console.log(res.data.joke);
   }
 
   render() {
