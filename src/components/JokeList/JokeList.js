@@ -10,9 +10,15 @@ class JokeList extends Component {
   };
 
   async componentDidMount() {
+    const jokes = [];
     const url = "https://icanhazdadjoke.com/";
-    let res = await axios.get(url, { headers: { Accept: "application/json" } });
-    console.log(res.data.joke);
+    while (jokes.length < this.props.numJokesToGet) {
+      let res = await axios.get(url, {
+        headers: { Accept: "application/json" }
+      });
+      jokes.push(res.data.joke);
+    }
+    this.setState({ jokes });
   }
 
   render() {
