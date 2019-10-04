@@ -1,7 +1,7 @@
 import React from "react";
-import { FaArrowUp, FaArrowDown } from "./react-icons/fa";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
-const Joke = () => {
+const Joke = props => {
   return (
     <div className="Joke">
       <div className="Joke-buttons">
