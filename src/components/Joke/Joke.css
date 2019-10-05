@@ -6,3 +6,11 @@
   font-weight: 400;
   padding: 1rem;
 }
+
+.Joke-buttons {
+  display: flex;
+  margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
