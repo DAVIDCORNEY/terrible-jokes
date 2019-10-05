@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import "./Joke.css";
 
 const Joke = props => {
   return (
