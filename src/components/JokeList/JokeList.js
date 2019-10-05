@@ -24,6 +24,14 @@ class JokeList extends Component {
     this.setState({ jokes });
   }
 
+  handleVote = (id, vote) => {
+    this.setState(prevState => ({
+      jokes: prevState.jokes.map(joke =>
+        joke.id === id ? { ...joke, votes: joke.votes + vote } : joke
+      )
+    }));
+  };
+
   render() {
     return (
       <div className="JokeList">
@@ -39,7 +47,7 @@ class JokeList extends Component {
         </div>
         <div className="JokeList-jokes">
           {this.state.jokes.map(j => (
-            <Joke text={j.text} votes={j.votes} />
+            <Joke text={j.text} votes={j.votes} key={j.id} />
           ))}
         </div>
       </div>
