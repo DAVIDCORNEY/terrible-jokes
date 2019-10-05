@@ -30,11 +30,19 @@ class JokeList extends Component {
   }
 
   handleVote = (id, vote) => {
-    this.setState(prevState => ({
-      jokes: prevState.jokes.map(joke =>
-        joke.id === id ? { ...joke, votes: joke.votes + vote } : joke
-      )
-    }));
+    this.setState(
+      prevState => ({
+        jokes: prevState.jokes.map(joke =>
+          joke.id === id ? { ...joke, votes: joke.votes + vote } : joke
+        )
+      }),
+      () =>
+        window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+    );
+  };
+
+  handleClick = () => {
+    this.getJokes();
   };
 
   render() {
@@ -48,7 +56,9 @@ class JokeList extends Component {
             src="https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg"
             alt="Laughing Face"
           />
-          <button className="JokeList-newJokes">New Jokes</button>
+          <button className="JokeList-newJokes" onClick={this.handleClick}>
+            New Jokes
+          </button>
         </div>
         <div className="JokeList-jokes">
           {this.state.jokes.map(j => (
