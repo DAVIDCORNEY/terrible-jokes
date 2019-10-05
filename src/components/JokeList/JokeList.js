@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./JokeList.css";
 import Joke from "../Joke/Joke";
+import uuid from "uuid/v4";
 
 class JokeList extends Component {
   static defaultProps = {
@@ -18,7 +19,7 @@ class JokeList extends Component {
       let res = await axios.get(url, {
         headers: { Accept: "application/json" }
       });
-      jokes.push({ text: res.data.joke, votes: 0 });
+      jokes.push({ id: uuid(), text: res.data.joke, votes: 0 });
     }
     this.setState({ jokes });
   }
