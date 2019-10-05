@@ -6,9 +6,9 @@ const Joke = props => {
   return (
     <div className="Joke">
       <div className="Joke-buttons">
-        <FaArrowUp onClick={props.upVote} />
-        <span>{props.votes}</span>
-        <FaArrowDown onClick={props.downVote} />
+        <FaArrowUp className="arrowUp" onClick={props.upVote} />
+        <span className="Joke-votes">{props.votes}</span>
+        <FaArrowDown className="arrowDown" onClick={props.downVote} />
       </div>
       <div className="Joke-text">{props.text}</div>
     </div>
