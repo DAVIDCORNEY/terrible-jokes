@@ -5,9 +5,9 @@ const Joke = props => {
   return (
     <div className="Joke">
       <div className="Joke-buttons">
-        <FaArrowUp />
+        <FaArrowUp onClick={props.upVote} />
         <span>{props.votes}</span>
-        <FaArrowDown />
+        <FaArrowDown onClick={props.downVote} />
       </div>
       <div className="Joke-text">{props.text}</div>
     </div>
