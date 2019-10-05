@@ -11,6 +11,12 @@ const Joke = props => {
         <FaArrowDown className="arrowDown" onClick={props.downVote} />
       </div>
       <div className="Joke-text">{props.text}</div>
+      <div className="Joke-smiley">
+        <i
+          class="em em-rolling_on_the_floor_laughing"
+          aria-label="ROLLING ON THE FLOOR LAUGHING"
+        ></i>
+      </div>
     </div>
   );
 };
