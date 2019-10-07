@@ -1,8 +1,6 @@
 .App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
+  box-sizing: border-box;
   font-family: "Rubik", sans-serif;
   background: linear-gradient(
     135deg,
