@@ -20,11 +20,18 @@ class JokeList extends Component {
   async getJokes() {
     const jokes = [];
     const url = "https://icanhazdadjoke.com/";
+    let seenJokes = new Set(this.state.jokes.map(j => j.text));
     while (jokes.length < this.props.numJokesToGet) {
       let res = await axios.get(url, {
         headers: { Accept: "application/json" }
       });
-      jokes.push({ id: uuid(), text: res.data.joke, votes: 0 });
+      let newJoke = res.data.joke;
+      if (!seenJokes.has(newJoke)) {
+        jokes.push({ id: uuid(), text: newJoke, votes: 0 });
+      } else {
+        console.log("Found Duplicate");
+        console.log(newJoke);
+      }
     }
     this.setState(
       prevState => ({
