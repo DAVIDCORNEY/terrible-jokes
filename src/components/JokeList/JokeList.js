@@ -19,17 +19,16 @@ class JokeList extends Component {
 
   async getJokes() {
     try {
-      const jokes = [];
+      const jokesArr = [];
       const url = "https://icanhazdadjoke.com/";
       let seenJokes = new Set(this.state.jokes.map(j => j.text));
-      console.log(seenJokes);
-      while (jokes.length < this.props.numJokesToGet) {
+      while (jokesArr.length < this.props.numJokesToGet) {
         let res = await axios.get(url, {
           headers: { Accept: "application/json" }
         });
         let newJoke = res.data.joke;
         if (!seenJokes.has(newJoke)) {
-          jokes.push({ id: uuid(), text: newJoke, votes: 0 });
+          jokesArr.push({ id: uuid(), text: newJoke, votes: 0 });
         } else {
           console.log("Found a duplicate");
           console.log("newJoke");
@@ -38,7 +37,7 @@ class JokeList extends Component {
       this.setState(
         prevState => ({
           loading: false,
-          jokes: [...jokes, ...prevState.jokes]
+          jokes: [...jokesArr, ...prevState.jokes]
         }),
         () =>
           window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
@@ -66,6 +65,7 @@ class JokeList extends Component {
   };
 
   render() {
+    let jokes = this.state.jokes.sort((a, b) => b.votes - a.votes);
     if (this.state.loading) {
       return (
         <div className="JokeList-spinner">
@@ -89,7 +89,7 @@ class JokeList extends Component {
           </button>
         </div>
         <div className="JokeList-jokes">
-          {this.state.jokes.map(j => (
+          {jokes.map(j => (
             <Joke
               text={j.text}
               votes={j.votes}
