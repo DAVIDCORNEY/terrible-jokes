@@ -1,16 +1,17 @@
 .JokeList {
-  display: flex;
-  width: 80%;
-  height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
 }
 
 .JokeList-sidebar {
+  height: 100%;
   display: flex;
   background: #9575cd;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
   text-align: center;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1),
     inset 0 0 25px #7e57c2;
@@ -42,10 +43,10 @@
 }
 
 .JokeList-jokes {
-  height: 90%;
+  height: 100%;
   background: white;
-  align-self: center;
-  width: 70%;
+  /* align-self: center; */
+  width: 100%;
   overflow: scroll;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
@@ -103,5 +104,70 @@
   40%,
   60% {
     transform: translate3d(12px, 0, 4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .JokeList {
+    grid-template-columns: 1fr;
+  }
+  .JokeList-sidebar {
+    display: flex;
+    background: #9575cd;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1),
+      inset 0 0 25px #7e57c2;
+    z-index: 999;
+  }
+
+  .JokeList-title {
+    font-size: 3rem;
+    margin: 2rem;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 0.6rem;
+  }
+
+  .JokeList-title span {
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .JokeList-sidebar img {
+    width: 18%;
+    border-radius: 50%;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .JokeList-jokes {
+    background: white;
+    width: 100%;
+    overflow: scroll;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+  }
+  .JokeList-newJokes {
+    font-size: 1.5rem;
+    width: 30%;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    color: white;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    margin: 2rem;
+    word-spacing: 2rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(
+      135deg,
+      rgba(179, 229, 252, 1) 0%,
+      rgba(179, 229, 252, 1) 50%,
+      rgba(240, 98, 146, 1) 50%,
+      rgba(240, 98, 146, 1) 100%
+    );
   }
 }
