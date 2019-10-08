@@ -120,7 +120,7 @@
   }
 
   .JokeList-newJokes {
-    width: 30%;
+    width: 25%;
   }
 }
 
@@ -142,20 +142,22 @@
   }
 }
 
-/* @media (max-width: 576px) {
-  .JokeList {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 576px) {
   .JokeList-title {
-    font-size: 2.5rem;
+    margin: 1.5rem;
+    font-size: 2rem;
   }
 
   .JokeList-sidebar img {
-    width: 16%;
+    width: 18%;
   }
 
   .JokeList-newJokes {
-    width: 30%;
+    font-size: 1.3rem;
+    width: 50%;
+    border-radius: 2rem;
+    padding: 0.8rem 2rem;
+    margin: 1.5rem;
+    word-spacing: 1.5rem;
   }
-} */
+}
