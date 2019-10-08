@@ -3,6 +3,7 @@ import axios from "axios";
 import "./JokeList.css";
 import Joke from "../Joke/Joke";
 import uuid from "uuid/v4";
+import FlipMove from "react-flip-move";
 
 class JokeList extends Component {
   static defaultProps = {
@@ -86,15 +87,17 @@ class JokeList extends Component {
           </button>
         </div>
         <div className="JokeList-jokes">
-          {jokes.map(j => (
-            <Joke
-              text={j.text}
-              votes={j.votes}
-              key={j.id}
-              upVote={() => this.handleVote(j.id, 1)}
-              downVote={() => this.handleVote(j.id, -1)}
-            />
-          ))}
+          <FlipMove>
+            {jokes.map(j => (
+              <Joke
+                text={j.text}
+                votes={j.votes}
+                key={j.id}
+                upVote={() => this.handleVote(j.id, 1)}
+                downVote={() => this.handleVote(j.id, -1)}
+              />
+            ))}
+          </FlipMove>
         </div>
       </div>
     );
