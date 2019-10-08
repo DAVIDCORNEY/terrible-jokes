@@ -188,3 +188,25 @@
     margin: 6px;
   }
 }
+
+@media (max-width: 375px) {
+  .Joke-smiley {
+    font-size: 1.8rem;
+  }
+  .Joke-text {
+    font-size: 1rem;
+  }
+  .Joke-votes {
+    width: 1.8rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    border-radius: 50%;
+    font-size: 1rem;
+  }
+  .arrowUp {
+    font-size: 1.3rem;
+  }
+  .arrowDown {
+    font-size: 1.3rem;
+  }
+}
