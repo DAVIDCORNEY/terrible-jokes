@@ -161,3 +161,20 @@
     word-spacing: 1.5rem;
   }
 }
+
+@media (max-width: 375px) {
+  .JokeList-title {
+    font-size: 1.8rem;
+  }
+
+  .JokeList-sidebar img {
+    width: 16%;
+  }
+
+  .JokeList-newJokes {
+    width: 60%;
+    border-radius: 2rem;
+    padding: 0.6rem 1.8rem;
+    word-spacing: 0.7rem;
+  }
+}
