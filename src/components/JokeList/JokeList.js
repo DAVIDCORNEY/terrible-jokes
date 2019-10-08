@@ -29,9 +29,6 @@ class JokeList extends Component {
         let newJoke = res.data.joke;
         if (!seenJokes.has(newJoke)) {
           jokesArr.push({ id: uuid(), text: newJoke, votes: 0 });
-        } else {
-          console.log("Found a duplicate");
-          console.log("newJoke");
         }
       }
       this.setState(
